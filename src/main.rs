@@ -2,6 +2,7 @@ use ruststartup::comment;
 use ruststartup::enumeration;
 use ruststartup::formatter;
 use ruststartup::trait_debug_display;
+use ruststartup::match_keyword;
 
 fn main() {
     comment::line_comment();
@@ -17,4 +18,9 @@ fn main() {
     enumeration::print_car_level();
     enumeration::print_car_level_with_brand();
     enumeration::print_car_level_with_brand_or_price();
+
+    match_keyword::simple_match();
+    match_keyword::use_or_operation_in_match();
+    match_keyword::binding_in_match();
+    match_keyword::matches_macro();
 }
