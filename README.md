@@ -8,4 +8,4 @@
 * [生命周期](./src/life_cycle.rs)
 * [泛型](./src/generics.rs)
 * [特性 Trait](./src/trait_x.rs)
-
+* [特性对象](./src/trait_object.rs)

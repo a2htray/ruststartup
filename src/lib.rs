@@ -5,4 +5,5 @@ pub mod generics;
 pub mod life_cycle;
 pub mod match_keyword;
 pub mod trait_debug_display;
+pub mod trait_object;
 pub mod trait_x;

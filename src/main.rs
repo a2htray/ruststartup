@@ -6,6 +6,7 @@ use ruststartup::life_cycle;
 use ruststartup::match_keyword;
 use ruststartup::trait_debug_display;
 use ruststartup::trait_x;
+use ruststartup::trait_object;
 
 fn main() {
     comment::line_comment();
@@ -41,4 +42,7 @@ fn main() {
     trait_x::test_trait_as_parameter();
     trait_x::test_multiple_trait_bounds();
     trait_x::test_multiple_trait_bounds_where();
+
+    trait_object::test_zoo();
+    trait_object::test_dog_swin_and_run();
 }
