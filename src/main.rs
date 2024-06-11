@@ -5,6 +5,7 @@ use ruststartup::generics;
 use ruststartup::life_cycle;
 use ruststartup::match_keyword;
 use ruststartup::trait_debug_display;
+use ruststartup::trait_x;
 
 fn main() {
     comment::line_comment();
@@ -34,4 +35,10 @@ fn main() {
     generics::test_add();
     generics::test_generic_struct();
     generics::test_const_generic();
+
+    trait_x::test_auto_derive_trait();
+    trait_x::test_custom_fly_trait();
+    trait_x::test_trait_as_parameter();
+    trait_x::test_multiple_trait_bounds();
+    trait_x::test_multiple_trait_bounds_where();
 }

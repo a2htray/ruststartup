@@ -7,3 +7,5 @@
 * [match 关键字](./src/match_keyword.rs)
 * [生命周期](./src/life_cycle.rs)
 * [泛型](./src/generics.rs)
+* [特性 Trait](./src/trait_x.rs)
+
