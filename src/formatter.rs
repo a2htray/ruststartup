@@ -1,7 +1,11 @@
 pub fn formatter_examples() {
     println!("正常使用 {}, {}", "hello", "world");
     println!("位置参数 {1}, {0}", "hello", "world");
-    println!("具名参数 {hello}, {world}", hello="hello", world="world");
+    println!(
+        "具名参数 {hello}, {world}",
+        hello = "hello",
+        world = "world"
+    );
 
     println!("小数点精度 {:.2}", 3.1415926);
     println!("带符号的小数点精度 {:+.2}", -3.1415926);

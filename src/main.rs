@@ -1,9 +1,10 @@
 use ruststartup::comment;
 use ruststartup::enumeration;
 use ruststartup::formatter;
-use ruststartup::trait_debug_display;
-use ruststartup::match_keyword;
+use ruststartup::generics;
 use ruststartup::life_cycle;
+use ruststartup::match_keyword;
+use ruststartup::trait_debug_display;
 
 fn main() {
     comment::line_comment();
@@ -29,4 +30,8 @@ fn main() {
     let [xs1, xs2] = [vec![1.0, 2.0, 3.0], vec![4.0, 5.0, 6.0]];
     let xs = life_cycle::test_which_bigger_vector(&xs1, &xs2);
     println!("{:?}", xs);
+
+    generics::test_add();
+    generics::test_generic_struct();
+    generics::test_const_generic();
 }

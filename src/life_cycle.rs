@@ -1,5 +1,4 @@
 pub fn trigger_dangling_pointer() {
-
     #![allow(warnings)]
     let x;
     {
@@ -8,7 +7,7 @@ pub fn trigger_dangling_pointer() {
     } // 离开该作用域，y 被释放；
 
     // 此时 x 引用了一个无效的变量
-    
+
     println!("触发悬垂指针 ...");
 }
 
