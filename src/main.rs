@@ -2,6 +2,7 @@ use ruststartup::comment;
 use ruststartup::enumeration;
 use ruststartup::formatter;
 use ruststartup::generics;
+use ruststartup::hashmap_usage;
 use ruststartup::life_cycle;
 use ruststartup::match_keyword;
 use ruststartup::trait_debug_display;
@@ -50,4 +51,7 @@ fn main() {
     vector_usage::create_vec();
     vector_usage::add_and_remove_elements();
     vector_usage::iter_vec();
+
+    hashmap_usage::create_hashmap_example();
+    hashmap_usage::query_hashmap_example();
 }
