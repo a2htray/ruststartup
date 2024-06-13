@@ -7,6 +7,7 @@ use ruststartup::match_keyword;
 use ruststartup::trait_debug_display;
 use ruststartup::trait_x;
 use ruststartup::trait_object;
+use ruststartup::vector_usage;
 
 fn main() {
     comment::line_comment();
@@ -45,4 +46,8 @@ fn main() {
 
     trait_object::test_zoo();
     trait_object::test_dog_swin_and_run();
+
+    vector_usage::create_vec();
+    vector_usage::add_and_remove_elements();
+    vector_usage::iter_vec();
 }

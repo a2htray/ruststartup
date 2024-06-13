@@ -7,3 +7,4 @@ pub mod match_keyword;
 pub mod trait_debug_display;
 pub mod trait_object;
 pub mod trait_x;
+pub mod vector_usage;
