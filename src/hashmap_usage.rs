@@ -1,6 +1,6 @@
 /*
- HashMap 的使用
- */
+HashMap 的使用
+*/
 
 use std::collections::HashMap;
 

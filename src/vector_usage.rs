@@ -1,6 +1,6 @@
 /*
-  数组的使用
- */
+ 数组的使用
+*/
 
 fn create_vec1() -> Vec<i32> {
     // 使用 Vec::new() 创建数组
@@ -8,7 +8,7 @@ fn create_vec1() -> Vec<i32> {
     vec.push(1);
     vec.push(2);
     vec.push(3);
-    
+
     vec
 }
 
@@ -50,7 +50,7 @@ fn iter_vec1() {
 fn iter_vec2() {
     let vec = vec![1, 2, 3];
     let mut i = 0;
-    
+
     // 遍历值
     for ele in vec.iter() {
         println!("遍历数组 {}-{}", i, ele);
@@ -67,11 +67,10 @@ fn iter_vec3() {
     }
 }
 
-
 pub fn create_vec() {
     let vec1 = create_vec1();
     println!("result vector = {:?}", vec1);
-    
+
     let vec2 = create_vec2();
     println!("result vector = {:?}", vec2);
 }

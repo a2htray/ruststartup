@@ -1,3 +1,4 @@
+use ruststartup::closure;
 use ruststartup::comment;
 use ruststartup::enumeration;
 use ruststartup::formatter;
@@ -6,8 +7,8 @@ use ruststartup::hashmap_usage;
 use ruststartup::life_cycle;
 use ruststartup::match_keyword;
 use ruststartup::trait_debug_display;
-use ruststartup::trait_x;
 use ruststartup::trait_object;
+use ruststartup::trait_x;
 use ruststartup::vector_usage;
 
 fn main() {
@@ -54,4 +55,11 @@ fn main() {
 
     hashmap_usage::create_hashmap_example();
     hashmap_usage::query_hashmap_example();
+
+    closure::simple_closure();
+    closure::fn_as_parameter();
+    closure::fn_as_return();
+    closure::test_owner();
+    closure::fn_as_parameter2();
+    closure::fn_variable_declare();
 }
