@@ -10,3 +10,5 @@
 * [特性 Trait](./src/trait_x.rs)
 * [特性对象](./src/trait_object.rs)
 * [数组](./src/vector_usage.rs)
+* [闭包](./src/closure.rs)
+* [闭包 2 - Fn & FnMut & FnOnce](./src/closure2.rs)

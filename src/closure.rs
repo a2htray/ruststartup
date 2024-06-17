@@ -14,6 +14,112 @@ pub fn simple_closure() {
     sum(3);
 }
 
+pub fn capture_outer_variable() {
+    let name = "a2htray";
+
+    let working = || {
+        println!("{} 正在工作", name);
+    };
+
+    working();
+}
+
+pub fn determine_closure_type() {
+    let add = |a, b| a + b;
+    println!("用 i32 作为参数类型 {}", add(1, 2));
+    // println!("这里就不能用 f32 作为参数类型了，执行会报错 {}", add(1.2, 2.2));
+}
+
+pub fn rust_by_example1() {
+    let outer_var = 42;
+
+    // 在签名中声明参数类型
+    let closure_annotated = |i: i32| -> i32 { i + outer_var };
+    // 利用编译器的类型推导能力
+    let closure_inferred = |i| i + outer_var;
+
+    // 调用闭包
+    println!("签名中声明类型: {}", closure_annotated(1));
+    println!("编译器类型推导: {}", closure_inferred(1));
+
+    // 没有输入参数、返回值类型为 i32 的闭包
+    // 返回值类型由编译器推导
+    let one = || 1;
+    println!("调用闭包返回 1: {}", one());
+}
+
+pub fn rust_by_example_capturing() {
+    use std::mem;
+
+    let color = String::from("green");
+
+    // 闭包会使用借用（&）的方式使用 color，该借用会持续到最后一次 print 的调用
+    // println! 的输入参数类型是不可变引用
+    let print = || println!("`color`: {}", color);
+
+    // 调用闭包
+    print();
+
+    // 因为闭包只是借用，所以后面还可以对 color 变量进行借用
+    let _reborrow = &color;
+    print();
+
+    // 触发移动
+    let _color_moved = color;
+
+    let mut count = 0;
+
+    // count 变量自增，此处可以使用 `&mut count` 或 `count`
+    // inc 前的 mut 是必须的，这样才会发生可变借用
+    // 因此在闭中的 count 需要是一个 `&mut count`
+    //
+    // 如果你希望在闭包中修改一个值，则需要在闭包声明时加入 mut 关键字
+    // 同时，捕获的变量也应该是 `&mut`
+    let mut inc = || {
+        count += 1;
+        println!("`count`: {}", count);
+    };
+
+    // 使用可变借用调用闭包
+    inc();
+
+    // 当前闭包依然持有 count 的可变借用，所以不能在此时进行借用
+    // 再次调用闭包
+    inc();
+
+    // inc 闭包不需要在执行，也就不会持有 `&mut count`，因此下面的可变借用有效
+    let _count_reborrowed = &mut count;
+
+    // Box<i32> 不具备 Copy 特性
+    let movable = Box::new(3);
+
+    // `mem::drop` 需要一个 `T`，所以它使用一个值
+    // 在调用 consume 时，会发生移动
+    let consume = || {
+        println!("`movable`: {:?}", movable);
+        mem::drop(movable);
+    };
+
+    // `consume` 闭包只能调用一次，因为 movable 变量已经发生了移动
+    consume();
+    // consume();
+    // ^ TODO: 取消注释，再次调用 consume 会报错
+}
+
+pub fn rust_by_example_move() {
+    // `Vec` 不具备 Copy 特性
+    let haystack = vec![1, 2, 3];
+
+    // move 强制发生所有权的转移
+    let contains = move |needle| haystack.contains(needle);
+
+    println!("{}", contains(&1));
+    println!("{}", contains(&4));
+
+    // 在后续程序中不能再使用 haystack 变量
+    // 如果移去 move 关键字，则在后续程序中可以再使用 haystack 变量
+}
+
 pub fn test_owner() {
     let s = "hello";
     let my_print = || {
@@ -70,29 +176,4 @@ pub fn fn_as_return() {
 
     println!("函数作为返回值 {}", fn_created(1, 2));
     println!("函数作为返回值 {}", create_fn(2)(1, 2));
-}
-
-pub fn use_closure_in_struct() {
-    println!("在结构中使用闭包");
-
-    struct User<T>
-    where
-        T: Fn(Self) -> String,
-    {
-        get_name: T,
-        name: String,
-    }
-
-    impl<T> User<T>
-    where
-        T: Fn(Self) -> String,
-    {
-        fn new(get_name: T, name: String) -> User<T> {
-            User { get_name, name }
-        }
-    }
-
-    // let get_name = |o| o.name
-
-    // User::new(get_name, String::from("hello"));
 }

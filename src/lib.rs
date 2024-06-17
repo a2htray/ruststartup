@@ -1,4 +1,5 @@
 pub mod closure;
+pub mod closure2;
 pub mod comment;
 pub mod enumeration;
 pub mod formatter;

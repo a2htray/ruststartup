@@ -1,4 +1,5 @@
 use ruststartup::closure;
+use ruststartup::closure2;
 use ruststartup::comment;
 use ruststartup::enumeration;
 use ruststartup::formatter;
@@ -62,4 +63,10 @@ fn main() {
     closure::test_owner();
     closure::fn_as_parameter2();
     closure::fn_variable_declare();
+    closure::capture_outer_variable();
+    closure::rust_by_example_capturing();
+
+    closure2::test_fn();
+    closure2::test_fn_mut();
+    closure2::test_fn_once();
 }
