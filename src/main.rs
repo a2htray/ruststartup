@@ -2,6 +2,7 @@ use ruststartup::closure;
 use ruststartup::closure2;
 use ruststartup::comment;
 use ruststartup::enumeration;
+use ruststartup::error_handle;
 use ruststartup::formatter;
 use ruststartup::generics;
 use ruststartup::hashmap_usage;
@@ -10,6 +11,7 @@ use ruststartup::match_keyword;
 use ruststartup::trait_debug_display;
 use ruststartup::trait_object;
 use ruststartup::trait_x;
+use ruststartup::types;
 use ruststartup::vector_usage;
 
 fn main() {
@@ -69,4 +71,16 @@ fn main() {
     closure2::test_fn();
     closure2::test_fn_mut();
     closure2::test_fn_once();
+
+    error_handle::panic_active_trigger();
+    error_handle::panic_passive_triger();
+    error_handle::ip_parse();
+    error_handle::test_result_enum();
+    error_handle::error_propagation();
+
+    types::test_as();
+    types::as_examples();
+    types::mem_addr_to_pointer();
+    types::passing_as();
+    types::try_into();
 }

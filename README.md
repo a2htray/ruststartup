@@ -12,3 +12,5 @@
 * [数组](./src/vector_usage.rs)
 * [闭包](./src/closure.rs)
 * [闭包 2 - Fn & FnMut & FnOnce](./src/closure2.rs)
+* [错误处理](./src/error_handle.rs)
+* [类型转换](./src/types.rs)
