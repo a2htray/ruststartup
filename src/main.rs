@@ -1,3 +1,4 @@
+use ruststartup::async_await;
 use ruststartup::closure;
 use ruststartup::closure2;
 use ruststartup::comment;
@@ -86,4 +87,8 @@ fn main() {
     types::try_into();
 
     macros::test_do_something_macro();
+
+    async_await::run_future();
+    async_await::run_future2();
+    async_await::run_future3();
 }

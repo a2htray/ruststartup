@@ -1,3 +1,4 @@
+pub mod async_await;
 pub mod closure;
 pub mod closure2;
 pub mod comment;
