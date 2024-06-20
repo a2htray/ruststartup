@@ -7,6 +7,7 @@ use ruststartup::formatter;
 use ruststartup::generics;
 use ruststartup::hashmap_usage;
 use ruststartup::life_cycle;
+use ruststartup::macros;
 use ruststartup::match_keyword;
 use ruststartup::trait_debug_display;
 use ruststartup::trait_object;
@@ -83,4 +84,6 @@ fn main() {
     types::mem_addr_to_pointer();
     types::passing_as();
     types::try_into();
+
+    macros::test_do_something_macro();
 }
