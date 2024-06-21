@@ -1,4 +1,5 @@
 pub mod async_await;
+pub mod atomic_usage;
 pub mod closure;
 pub mod closure2;
 pub mod comment;
@@ -15,6 +16,5 @@ pub mod trait_object;
 pub mod trait_x;
 pub mod types;
 pub mod unsafe_usage;
-pub mod vector_usage;
 pub mod variables;
-pub mod atomic_usage;
+pub mod vector_usage;

@@ -11,9 +11,17 @@ pub fn test_start_atomicu8() {
     let mut threads = Vec::with_capacity(8);
     for _ in 0..=threads.capacity() - 1 {
         threads.push(thread::spawn(move || {
-            println!("thread id: {:?} -> START = {}", thread::current().id(), START.load(Ordering::Relaxed));
+            println!(
+                "thread id: {:?} -> START = {}",
+                thread::current().id(),
+                START.load(Ordering::Relaxed)
+            );
             START.fetch_add(1, Ordering::Relaxed);
-            println!("thread id: {:?} -> START = {}", thread::current().id(), START.load(Ordering::Relaxed));
+            println!(
+                "thread id: {:?} -> START = {}",
+                thread::current().id(),
+                START.load(Ordering::Relaxed)
+            );
         }));
     }
 
