@@ -17,3 +17,5 @@
 * [宏 Macro](./src/macros.rs)
 * [异步编程](./src/async_await.rs)
 * [unsafe 的使用](./src/unsafe_usage.rs)
+* [修改静态可变变量](./src/variables.rs)
+* [原子操作](./src/atomic_usage.rs)

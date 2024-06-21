@@ -1,4 +1,5 @@
 use ruststartup::async_await;
+use ruststartup::atomic_usage;
 use ruststartup::closure;
 use ruststartup::closure2;
 use ruststartup::comment;
@@ -15,6 +16,7 @@ use ruststartup::trait_object;
 use ruststartup::trait_x;
 use ruststartup::types;
 use ruststartup::unsafe_usage;
+use ruststartup::variables;
 use ruststartup::vector_usage;
 
 fn main() {
@@ -101,4 +103,8 @@ fn main() {
     unsafe_usage::create_raw_pointer_from_box();
     unsafe_usage::test_split_at_mut();
     unsafe_usage::unsafe_trait_use_raw_pointer();
+
+    variables::use_static_mut_variable();
+
+    atomic_usage::test_start_atomicu8();
 }

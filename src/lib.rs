@@ -16,3 +16,5 @@ pub mod trait_x;
 pub mod types;
 pub mod unsafe_usage;
 pub mod vector_usage;
+pub mod variables;
+pub mod atomic_usage;
