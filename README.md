@@ -19,3 +19,4 @@
 * [unsafe 的使用](./src/unsafe_usage.rs)
 * [修改静态可变变量](./src/variables.rs)
 * [原子操作](./src/atomic_usage.rs)
+* [循环引用](./src/cir_ref.rs)

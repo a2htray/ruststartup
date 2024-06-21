@@ -1,5 +1,6 @@
 use ruststartup::async_await;
 use ruststartup::atomic_usage;
+use ruststartup::cir_ref;
 use ruststartup::closure;
 use ruststartup::closure2;
 use ruststartup::comment;
@@ -107,4 +108,6 @@ fn main() {
     variables::use_static_mut_variable();
 
     atomic_usage::test_start_atomicu8();
+
+    cir_ref::use_list();
 }
