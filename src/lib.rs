@@ -14,4 +14,5 @@ pub mod trait_debug_display;
 pub mod trait_object;
 pub mod trait_x;
 pub mod types;
+pub mod unsafe_usage;
 pub mod vector_usage;

@@ -14,6 +14,7 @@ use ruststartup::trait_debug_display;
 use ruststartup::trait_object;
 use ruststartup::trait_x;
 use ruststartup::types;
+use ruststartup::unsafe_usage;
 use ruststartup::vector_usage;
 
 fn main() {
@@ -90,5 +91,14 @@ fn main() {
 
     async_await::run_future();
     async_await::run_future2();
-    async_await::run_future3();
+    // async_await::run_future3();
+
+    unsafe_usage::raw_pointer();
+    unsafe_usage::vec_pointer();
+    unsafe_usage::create_raw_pointer();
+    unsafe_usage::create_raw_pointer_from_address();
+    unsafe_usage::use_raw_pointer_from_address();
+    unsafe_usage::create_raw_pointer_from_box();
+    unsafe_usage::test_split_at_mut();
+    unsafe_usage::unsafe_trait_use_raw_pointer();
 }
