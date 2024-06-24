@@ -44,6 +44,9 @@ fn main() {
     let [xs1, xs2] = [vec![1.0, 2.0, 3.0], vec![4.0, 5.0, 6.0]];
     let xs = life_cycle::test_which_bigger_vector(&xs1, &xs2);
     println!("{:?}", xs);
+    life_cycle::test_longest();
+    life_cycle::test_longest2();
+    life_cycle::use_life_circle_in_struct();
 
     generics::test_add();
     generics::test_generic_struct();
