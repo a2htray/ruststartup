@@ -3,5 +3,9 @@ name = "ruststartup"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "minigrep"
+path = "src/minigrep/main.rs"
+
 [dependencies]
 futures = "0.3"
