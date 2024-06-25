@@ -9,7 +9,9 @@ fn main() {
     assert!(args[0].contains("minigrep"));
 
     let config = Config::build(&args).unwrap_or_else(|err| {
-        println!("Problem parsing arguments: {err}");
+        // println!("Problem parsing arguments: {err}");
+        // eprintln! 宏：标准错误输出
+        eprintln!("Problem parsing arguments: {err}");
         process::exit(1);
     });
 
@@ -17,7 +19,8 @@ fn main() {
     println!("In file {}", config.filename);
 
     if let Err(e) = run(config) {
-        println!("Application error: {e}");
+        // println!("Application error: {e}");
+        eprintln!("Application error: {e}");
         process::exit(1);
     }
 
