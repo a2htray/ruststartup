@@ -21,3 +21,4 @@
 * [原子操作](./src/atomic_usage.rs)
 * [循环引用](./src/cir_ref.rs)
 * [全局变量](./src/global_variables.rs)
+* [智能指针](./src/smart_pointer.rs)

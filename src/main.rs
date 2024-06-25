@@ -13,6 +13,7 @@ use ruststartup::hashmap_usage;
 use ruststartup::life_cycle;
 use ruststartup::macros;
 use ruststartup::match_keyword;
+use ruststartup::smart_pointer;
 use ruststartup::trait_debug_display;
 use ruststartup::trait_object;
 use ruststartup::trait_x;
@@ -117,4 +118,9 @@ fn main() {
 
     println!("输出定义的常量 {}", global_variables::MAX_ID);
     global_variables::add_counter();
+
+    smart_pointer::use_box_integer();
+    smart_pointer::large_scale_datastructure();
+    smart_pointer::normal_deref();
+    smart_pointer::use_deref();
 }

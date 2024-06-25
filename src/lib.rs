@@ -20,3 +20,4 @@ pub mod types;
 pub mod unsafe_usage;
 pub mod variables;
 pub mod vector_usage;
+pub mod smart_pointer;
