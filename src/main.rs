@@ -123,4 +123,5 @@ fn main() {
     smart_pointer::large_scale_datastructure();
     smart_pointer::normal_deref();
     smart_pointer::use_deref();
+    smart_pointer::test_drops();
 }

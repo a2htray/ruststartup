@@ -33,6 +33,41 @@ pub fn use_deref() {
 }
 
 /// Drop 特性
+#[derive(Debug)]
+struct HasDrop1;
+impl Drop for HasDrop1 {
+    fn drop(&mut self) {
+        println!("drop HasDrop1");
+    }
+}
+
+#[derive(Debug)]
+struct HasDrop2;
+impl Drop for HasDrop2 {
+    fn drop(&mut self) {
+        println!("drop HasDrop2");
+    }
+}
+
+#[derive(Debug)]
+struct HasTwoDrops {
+    one: HasDrop1,
+    two: HasDrop2,
+}
+impl Drop for HasTwoDrops {
+    fn drop(&mut self) {
+        println!("drop HasTwoDrops")
+    }
+}
+
+pub fn test_drops() {
+    let has_two_drops = HasTwoDrops {
+        one: HasDrop1 {},
+        two: HasDrop2 {},
+    };
+
+    println!("{:?}", has_two_drops);
+}
 
 /// Box<T>
 /// 使用场景
