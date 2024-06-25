@@ -3,12 +3,12 @@ use std::{env, error::Error, fs, process};
 fn main() {
     println!("minigrep start");
 
-    let args: Vec<String> = env::args().collect();
+    // let args: Vec<String> = env::args().collect();
 
-    assert!(args.len() >= 1);
-    assert!(args[0].contains("minigrep"));
+    // assert!(args.len() >= 1);
+    // assert!(args[0].contains("minigrep"));
 
-    let config = Config::build(&args).unwrap_or_else(|err| {
+    let config = Config::build(env::args()).unwrap_or_else(|err| {
         // println!("Problem parsing arguments: {err}");
         // eprintln! 宏：标准错误输出
         eprintln!("Problem parsing arguments: {err}");
@@ -34,13 +34,19 @@ struct Config {
 }
 
 impl Config {
-    fn build(args: &[String]) -> Result<Config, &str> {
-        if args.len() < 3 {
-            return Err("not enough arguments");
-        }
+    fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
+        args.next();
 
-        let query = args[1].clone();
-        let filename = args[2].clone();
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("query string not found"),
+        };
+
+        let filename = match args.next() {
+            Some(arg) => arg,
+            None => return Err("filename not found"),
+        };
+
         let ignore_case = env::var("IGNORE_CASE").is_ok();
 
         Ok(Config {
@@ -67,26 +73,38 @@ fn run(config: Config) -> Result<(), Box<dyn Error>> {
 }
 
 fn search<'a>(query: &'a str, contents: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
+    contents
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
 
-    for line in contents.lines() {
-        if line.contains(query) {
-            results.push(line);
-        }
-    }
+    // let mut results = Vec::new();
 
-    results
+    // for line in contents.lines() {
+    //     if line.contains(query) {
+    //         results.push(line);
+    //     }
+    // }
+
+    // results
 }
 
 fn search_case_insensitive<'a>(query: &'a str, contents: &'a str) -> Vec<&'a str> {
     let query = query.to_lowercase();
-    let mut results = Vec::new();
 
-    for line in contents.lines() {
-        if line.to_lowercase().contains(&query) {
-            results.push(line);
-        }
-    }
+    contents
+        .lines()
+        .filter(|line| line.to_lowercase().contains(&query))
+        .collect()
 
-    results
+    // let query = query.to_lowercase();
+    // let mut results = Vec::new();
+
+    // for line in contents.lines() {
+    //     if line.to_lowercase().contains(&query) {
+    //         results.push(line);
+    //     }
+    // }
+
+    // results
 }
