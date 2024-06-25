@@ -124,4 +124,6 @@ fn main() {
     smart_pointer::normal_deref();
     smart_pointer::use_deref();
     smart_pointer::test_drops();
+    smart_pointer::test_rc();
+    smart_pointer::test_rc2();
 }

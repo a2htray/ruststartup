@@ -92,3 +92,32 @@ pub fn large_scale_datastructure() {
     let b2 = b; // 发生所有权转移
     println!("{}", b2.len());
 }
+
+/// Rc<T>
+/// 在堆上分配一个对象供程序的多个部分使用且无法确定哪个部分最后一个结束时，就可以使用 Rc 成为数据值的所有者
+pub fn test_rc() {
+    use std::rc::Rc;
+
+    let a = Rc::new(String::from("hello world"));
+    let b = Rc::clone(&a);
+
+    assert_eq!(2, Rc::strong_count(&a));
+    assert_eq!(Rc::strong_count(&a), Rc::strong_count(&b));
+}
+
+pub fn test_rc2() {
+    use std::rc::Rc;
+
+    let a = Rc::new(String::from("hello world"));
+    let b = Rc::clone(&a);
+
+    assert_eq!(2, Rc::strong_count(&a));
+    assert_eq!(2, Rc::strong_count(&b));
+
+    {
+        let c = Rc::clone(&a);
+        assert_eq!(3, Rc::strong_count(&c));
+    }
+
+    assert_eq!(2, Rc::strong_count(&b));
+}
