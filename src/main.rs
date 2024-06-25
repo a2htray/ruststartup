@@ -8,6 +8,7 @@ use ruststartup::enumeration;
 use ruststartup::error_handle;
 use ruststartup::formatter;
 use ruststartup::generics;
+use ruststartup::global_variables;
 use ruststartup::hashmap_usage;
 use ruststartup::life_cycle;
 use ruststartup::macros;
@@ -113,4 +114,7 @@ fn main() {
     atomic_usage::test_start_atomicu8();
 
     cir_ref::use_list();
+
+    println!("输出定义的常量 {}", global_variables::MAX_ID);
+    global_variables::add_counter();
 }

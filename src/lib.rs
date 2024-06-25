@@ -8,6 +8,7 @@ pub mod enumeration;
 pub mod error_handle;
 pub mod formatter;
 pub mod generics;
+pub mod global_variables;
 pub mod hashmap_usage;
 pub mod life_cycle;
 pub mod macros;
